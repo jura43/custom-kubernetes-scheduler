@@ -9,6 +9,15 @@ Once running it is waiting for new unscheduled pods. When there is a pod that do
 
 ## Findings
 This is maybe simple scheduler with limited use case, but through my research I found that this custom scheduler can schedule big number of pods in shorter amount of time compared to default Kubernetes scheduler. This can be useful in clusters with homogeneous nodes where pods need to be started in shortest possible amount of time.
+##### Results of running deployment with 60 instances of my web application
+|   | Default schedluer  | Custom scheduler  |
+| ------------ | ------------ | ------------ |
+|  1st run | 20 seconds  | 8 seconds  |
+| 2nd run  | 19 seconds | 9 seconds  |
+| 3rd run  | 10 seconds | 10 seconds  |
+| 4th run  | 9 seconds | 9 seconds  |
+| 5th run  | 15 seconds  | 9 seconds  |
+
 
 ## How to use?
 To use to scheduler run it on control node in Kubernetes cluster which must have installed Python interpreter (used with 3.9) and Python Kubernetes library.
